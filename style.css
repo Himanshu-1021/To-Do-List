@@ -1,4 +1,5 @@
 
+/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -6,71 +7,111 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #f1f2f8;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #eef0ff, #f8f8fc);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 30px 15px;
+    color: #292943;
 }
 
+/* MAIN CONTAINER */
 .container {
-    background: white;
-    width: 90%;
-    max-width: 550px;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    background: #ffffff;
+    width: 100%;
+    max-width: 650px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 45px rgba(50, 45, 100, 0.10);
 }
 
+/* HEADING */
 h1 {
     text-align: center;
-    color: #333;
-    margin-bottom: 10px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #302b65;
+    margin-bottom: 8px;
 }
 
 .subtitle {
     text-align: center;
-    color: gray;
-    margin-bottom: 25px;
+    color: #9292a7;
+    font-size: 14px;
+    margin-bottom: 35px;
 }
 
+/* INPUT SECTION */
 .input-section {
     display: flex;
-    gap: 10px;
+    gap: 12px;
+    margin-bottom: 30px;
 }
 
-input {
+.input-section input {
     flex: 1;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 7px;
-    font-size: 15px;
     min-width: 0;
+    padding: 15px 18px;
+    border: 1px solid #e5e5f0;
+    border-radius: 10px;
+    outline: none;
+    font-size: 15px;
+    background: #fafaff;
+    transition: 0.3s;
+}
+
+.input-section input:focus {
+    border-color: #7163df;
+    box-shadow: 0 0 0 3px rgba(113, 99, 223, 0.12);
 }
 
 button {
-    padding: 12px 15px;
     border: none;
-    border-radius: 7px;
-    background: #6658d3;
+    padding: 13px 20px;
+    border-radius: 9px;
+    background: #6859d6;
     color: white;
+    font-size: 14px;
+    font-weight: 600;
     cursor: pointer;
+    transition: 0.2s;
 }
 
 button:hover {
-    background: #5042b8;
+    background: #5143b9;
+    transform: translateY(-1px);
 }
 
+/* STATISTICS */
 .stats {
-    display: flex;
-    justify-content: space-between;
-    gap: 8px;
-    margin: 25px 0;
-    color: #555;
-    font-size: 14px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 13px;
+    margin-bottom: 30px;
 }
 
+.stats p {
+    background: #f5f4ff;
+    padding: 18px 8px;
+    border-radius: 12px;
+    text-align: center;
+    color: #77748f;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid #eeecff;
+}
+
+.stats span {
+    display: block;
+    font-size: 25px;
+    font-weight: 700;
+    color: #6153cb;
+    margin-top: 7px;
+}
+
+/* TASK LIST */
 #todoList {
     list-style: none;
 }
@@ -78,45 +119,97 @@ button:hover {
 #todoList li {
     display: flex;
     align-items: center;
-    gap: 8px;
-    background: #f5f5fa;
-    padding: 12px;
-    border-radius: 7px;
-    margin-bottom: 10px;
+    gap: 12px;
+    padding: 15px;
+    margin-bottom: 12px;
+    background: #fafaff;
+    border: 1px solid #ededf5;
+    border-radius: 11px;
+    transition: 0.2s;
 }
 
+#todoList li:hover {
+    border-color: #d8d3ff;
+    box-shadow: 0 4px 12px rgba(50, 45, 100, 0.05);
+}
+
+/* CHECKBOX */
+#todoList input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #6859d6;
+    cursor: pointer;
+}
+
+/* TASK TEXT */
 .task-text {
     flex: 1;
+    font-size: 14px;
+    color: #41415a;
     overflow-wrap: anywhere;
 }
 
 .completed {
     text-decoration: line-through;
-    color: gray;
+    color: #a5a5b5;
 }
 
+/* EDIT BUTTON */
 .edit-btn {
-    background: #e4a72c;
+    background: #f0a83e;
+    padding: 9px 13px;
 }
 
+.edit-btn:hover {
+    background: #d99125;
+}
+
+/* DELETE BUTTON */
 .delete-btn {
-    background: #e04b4b;
+    background: #e96b76;
+    padding: 9px 13px;
 }
 
-@media (max-width: 450px) {
+.delete-btn:hover {
+    background: #d94d5a;
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 500px) {
+
     .container {
-        padding: 20px;
+        padding: 22px 17px;
     }
 
-    .stats {
-        flex-wrap: wrap;
+    h1 {
+        font-size: 27px;
     }
 
     .input-section {
-        flex-wrap: wrap;
+        flex-direction: column;
     }
 
-    .input-section input {
-        width: 100%;
+    .stats {
+        gap: 7px;
+    }
+
+    .stats p {
+        font-size: 11px;
+        padding: 13px 4px;
+    }
+
+    .stats span {
+        font-size: 21px;
+    }
+
+    #todoList li {
+        gap: 7px;
+        padding: 10px;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        padding: 8px;
+        font-size: 12px;
     }
 }
